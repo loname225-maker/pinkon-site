@@ -29,7 +29,6 @@ body {
   background-attachment: fixed;
 }
 
-/* 시작화면 */
 #intro {
   position: fixed;
   inset: 0;
@@ -47,6 +46,7 @@ body {
   font-family: 'Orbitron', sans-serif;
   font-size: 42px;
   color: #ff5a36;
+
   text-shadow:
     0 0 10px rgba(255,90,54,0.9),
     0 0 30px rgba(255,120,50,0.6);
@@ -65,7 +65,6 @@ body {
   50% { opacity: 0.2; }
 }
 
-/* 메인 */
 .container {
   position: relative;
   z-index: 10;
@@ -77,7 +76,6 @@ body {
   padding: 20px;
 }
 
-/* 불꽃 */
 .fire-container {
   position: fixed;
   inset: 0;
@@ -106,7 +104,6 @@ body {
   }
 }
 
-/* 프로필 카드 */
 .profile-card {
   width: 360px;
   background: rgba(15,15,15,0.55);
@@ -135,7 +132,6 @@ body {
   }
 }
 
-/* 프사 */
 .avatar {
   width: 130px;
   height: 130px;
@@ -182,7 +178,6 @@ body {
   letter-spacing: 2px;
 }
 
-/* 상태 카드 */
 .discord-card {
   margin-top: 25px;
   background: rgba(0,0,0,0.35);
@@ -215,7 +210,6 @@ body {
   color: rgba(255,255,255,0.5);
 }
 
-/* 버튼 */
 .links {
   display: flex;
   flex-direction: column;
@@ -284,8 +278,8 @@ body {
 <body>
 
 <!-- 브금 -->
-<audio id="bgm" loop>
-  <source src="minecraft.mp3" type="audio/mpeg">
+<audio id="bgm" autoplay loop>
+  <source src="./minecraft.mp3" type="audio/mpeg">
 </audio>
 
 <!-- 시작화면 -->
@@ -315,7 +309,7 @@ body {
 
     <div class="tag">@pinkon_23</div>
 
-    <div class="quote">"The Forge Never Dies"</div>
+    <div class="quote">"Luna is God"</div>
 
     <div class="discord-card">
       <div class="status-dot" id="statusDot"></div>
@@ -366,10 +360,21 @@ const intro = document.getElementById('intro');
 const bgm = document.getElementById('bgm');
 
 intro.addEventListener('click', () => {
+
   intro.style.opacity = '0';
 
   bgm.volume = 0.35;
-  bgm.play();
+
+  bgm.currentTime = 0;
+
+  const playPromise = bgm.play();
+
+  if (playPromise !== undefined) {
+
+    playPromise.catch(() => {
+      console.log("브라우저 자동재생 차단됨");
+    });
+  }
 
   setTimeout(() => {
     intro.style.display = 'none';
@@ -386,7 +391,6 @@ async function fetchLanyard() {
 
     const data = json.data;
 
-    // 프사
     if (data.discord_user.avatar) {
       const avatarUrl = `https://cdn.discordapp.com/avatars/${DISCORD_ID}/${data.discord_user.avatar}.png?size=256`;
       document.getElementById('avatarImg').src = avatarUrl;
@@ -420,7 +424,6 @@ async function fetchLanyard() {
 fetchLanyard();
 setInterval(fetchLanyard, 10000);
 
-// 불꽃 생성
 const fireContainer = document.getElementById('fireContainer');
 
 function createFire() {
@@ -456,7 +459,6 @@ function createFire() {
 
 setInterval(createFire, 120);
 
-// 커서 빛
 const cursorLight = document.getElementById('cursorLight');
 
 window.addEventListener('mousemove', (e) => {
