@@ -3,468 +3,668 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>골드를숭배하라 PROFILE</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+<title>골드를숭배하라</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-body {
-  min-height: 100vh;
-  overflow: hidden;
-  font-family: 'Rajdhani', sans-serif;
-  color: white;
+body{
+  width:100%;
+  height:100vh;
+  overflow:hidden;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  font-family:'Rajdhani',sans-serif;
+  color:white;
 
   background:
-    linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.8)),
-    url('LoR_6C2022_ChampRevealThumb-Ornn-Clean_1920X1080_PCruz_V001.jpg');
+  linear-gradient(rgba(0,0,0,.72),rgba(0,0,0,.82)),
+  url('efdf.jpg');
 
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+  background-size:cover;
+  background-position:center;
 }
 
-#intro {
-  position: fixed;
-  inset: 0;
-  background: black;
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  cursor: pointer;
-  transition: opacity 0.6s ease;
+/* 시작화면 */
+
+#intro{
+  position:fixed;
+  inset:0;
+
+  background:black;
+
+  z-index:99999;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+
+  cursor:pointer;
+
+  transition:.6s;
 }
 
-.intro-title {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 42px;
-  color: #ff5a36;
+.intro-title{
+  font-size:60px;
+
+  font-family:'Orbitron',sans-serif;
+  font-weight:900;
+
+  color:#bb6dff;
 
   text-shadow:
-    0 0 10px rgba(255,90,54,0.9),
-    0 0 30px rgba(255,120,50,0.6);
-
-  margin-bottom: 20px;
+  0 0 15px rgba(187,109,255,.8),
+  0 0 50px rgba(187,109,255,.45);
 }
 
-.intro-sub {
-  color: rgba(255,255,255,0.7);
-  font-size: 18px;
-  animation: blink 1.5s infinite;
+.intro-sub{
+  margin-top:18px;
+
+  letter-spacing:5px;
+
+  color:rgba(255,255,255,.5);
+
+  animation:blink 1.5s infinite;
 }
 
-@keyframes blink {
-  0%,100% { opacity: 1; }
-  50% { opacity: 0.2; }
-}
-
-.container {
-  position: relative;
-  z-index: 10;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  padding: 20px;
-}
-
-.fire-container {
-  position: fixed;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.fire {
-  position: absolute;
-  bottom: -20px;
-  border-radius: 50%;
-  filter: blur(2px);
-  animation: fireFloat linear forwards;
-}
-
-@keyframes fireFloat {
-  0% {
-    transform: translateY(0) scale(1);
-    opacity: 1;
+@keyframes blink{
+  0%,100%{
+    opacity:1;
   }
 
-  100% {
-    transform: translateY(-110vh) scale(0);
-    opacity: 0;
+  50%{
+    opacity:.2;
   }
 }
 
-.profile-card {
-  width: 360px;
-  background: rgba(15,15,15,0.55);
-  border: 1px solid rgba(255,90,54,0.3);
-  backdrop-filter: blur(10px);
-  border-radius: 18px;
-  padding: 35px;
-  text-align: center;
+/* 메인 */
+
+.main{
+  position:relative;
+  z-index:10;
+
+  text-align:center;
+
+  animation:fadeUp 1s ease;
+}
+
+@keyframes fadeUp{
+
+  from{
+    opacity:0;
+    transform:translateY(30px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* 프사 */
+
+.avatar{
+  width:145px;
+  height:145px;
+
+  border-radius:50%;
+  object-fit:cover;
+
+  border:4px solid rgba(255,255,255,.14);
 
   box-shadow:
-    0 0 30px rgba(255,90,54,0.2),
-    0 0 80px rgba(255,120,50,0.1);
+  0 0 30px rgba(187,109,255,.55),
+  0 0 80px rgba(187,109,255,.22);
 
-  animation: fadeUp 1s ease;
+  transition:.3s;
 }
 
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.avatar:hover{
+  transform:scale(1.05);
 }
 
-.avatar {
-  width: 130px;
-  height: 130px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 4px solid rgba(255,90,54,0.8);
+/* 이름 */
 
-  box-shadow:
-    0 0 25px rgba(255,90,54,0.5),
-    0 0 60px rgba(255,120,50,0.3);
+.nickname{
+  margin-top:22px;
 
-  transition: 0.3s ease;
-}
+  font-size:52px;
 
-.avatar:hover {
-  transform: scale(1.05);
-}
+  font-family:'Orbitron',sans-serif;
+  font-weight:900;
 
-.nickname {
-  margin-top: 20px;
-  font-family: 'Orbitron', sans-serif;
-  font-size: 30px;
-  font-weight: 900;
-  color: #ff5a36;
+  color:#d9b3ff;
 
   text-shadow:
-    0 0 10px rgba(255,90,54,0.8),
-    0 0 30px rgba(255,120,50,0.5),
-    3px 3px 0px black;
-
-  letter-spacing: 4px;
+  0 0 12px rgba(255,255,255,.3),
+  0 0 40px rgba(187,109,255,.45);
 }
 
-.tag {
-  margin-top: 10px;
-  color: rgba(255,255,255,0.55);
-  letter-spacing: 2px;
+.tag{
+  margin-top:8px;
+
+  font-size:18px;
+
+  letter-spacing:3px;
+
+  color:rgba(255,255,255,.55);
 }
 
-.quote {
-  margin-top: 14px;
-  color: rgba(255,255,255,0.35);
-  font-size: 14px;
-  letter-spacing: 2px;
+.bio{
+  margin-top:14px;
+
+  font-size:22px;
+
+  color:rgba(255,255,255,.9);
 }
 
-.discord-card {
-  margin-top: 25px;
-  background: rgba(0,0,0,0.35);
-  border: 1px solid rgba(255,90,54,0.2);
-  border-radius: 12px;
-  padding: 14px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
+/* 디코 카드 */
 
-.status-dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: #43b581;
-}
+.discord-box{
+  margin-top:28px;
 
-.dc-info {
-  text-align: left;
-}
+  width:430px;
+  max-width:92vw;
 
-.dc-name {
-  font-size: 15px;
-  font-weight: bold;
-}
+  padding:18px;
 
-.dc-status {
-  font-size: 13px;
-  color: rgba(255,255,255,0.5);
-}
+  border-radius:25px;
 
-.links {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-top: 28px;
-}
+  background:rgba(255,255,255,.08);
 
-.link-btn {
-  text-decoration: none;
-  color: white;
-  padding: 14px;
-  border-radius: 10px;
+  border:1px solid rgba(255,255,255,.12);
 
-  background: rgba(255,90,54,0.12);
-  border: 1px solid rgba(255,90,54,0.3);
+  backdrop-filter:blur(18px);
 
-  font-weight: bold;
-  letter-spacing: 1px;
-
-  transition: 0.25s ease;
-}
-
-.link-btn:hover {
-  transform: translateY(-3px) scale(1.03);
-
-  background: rgba(255,90,54,0.22);
+  display:flex;
+  align-items:center;
+  gap:15px;
 
   box-shadow:
-    0 0 20px rgba(255,90,54,0.4),
-    0 0 40px rgba(255,120,50,0.2);
+  0 0 25px rgba(187,109,255,.12);
 }
 
-.music-text {
-  margin-top: 20px;
-  font-size: 12px;
-  color: rgba(255,255,255,0.4);
+.discord-avatar{
+  width:70px;
+  height:70px;
+
+  border-radius:50%;
+  object-fit:cover;
 }
 
-.cursor-light {
-  position: fixed;
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 2;
-
-  background: radial-gradient(circle,
-    rgba(255,120,50,0.12) 0%,
-    transparent 70%);
-
-  transform: translate(-50%, -50%);
+.discord-info{
+  text-align:left;
 }
 
-@media (max-width: 500px) {
-  .profile-card {
-    width: 92%;
-    padding: 25px;
+.discord-name{
+  font-size:24px;
+  font-weight:700;
+}
+
+.discord-status{
+  font-size:16px;
+}
+
+/* 소셜 */
+
+.socials{
+  margin-top:28px;
+
+  display:flex;
+  justify-content:center;
+  gap:18px;
+}
+
+.social-btn{
+  width:68px;
+  height:68px;
+
+  border-radius:50%;
+
+  background:rgba(255,255,255,.08);
+
+  border:1px solid rgba(255,255,255,.12);
+
+  backdrop-filter:blur(15px);
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  transition:.25s;
+}
+
+.social-btn:hover{
+
+  transform:translateY(-5px) scale(1.07);
+
+  box-shadow:
+  0 0 30px rgba(187,109,255,.35);
+}
+
+.social-btn img{
+  width:35px;
+  height:35px;
+}
+
+/* 플레이어 */
+
+.player{
+  margin-top:38px;
+
+  width:520px;
+  max-width:92vw;
+
+  padding:18px;
+
+  border-radius:28px;
+
+  background:
+  linear-gradient(
+    135deg,
+    rgba(255,255,255,.08),
+    rgba(187,109,255,.08)
+  );
+
+  border:1px solid rgba(255,255,255,.12);
+
+  backdrop-filter:blur(18px);
+
+  display:flex;
+  align-items:center;
+  gap:16px;
+
+  box-shadow:
+  0 0 30px rgba(187,109,255,.12);
+}
+
+.cover{
+  width:76px;
+  height:76px;
+
+  border-radius:14px;
+
+  object-fit:cover;
+}
+
+.song-info{
+  flex:1;
+  text-align:left;
+}
+
+.song-title{
+  font-size:26px;
+  font-weight:700;
+}
+
+.song-artist{
+  margin-top:2px;
+
+  color:rgba(255,255,255,.6);
+}
+
+.bar{
+  margin-top:12px;
+
+  width:100%;
+  height:5px;
+
+  border-radius:999px;
+
+  background:rgba(255,255,255,.12);
+
+  overflow:hidden;
+}
+
+.bar-fill{
+  width:0%;
+  height:100%;
+
+  border-radius:999px;
+
+  background:#d7a8ff;
+
+  animation:musicMove 10s linear infinite;
+}
+
+@keyframes musicMove{
+
+  0%{
+    width:0%;
   }
 
-  .nickname {
-    font-size: 22px;
+  100%{
+    width:100%;
   }
 }
+
+/* 보라 파티클 */
+
+.fire-container{
+  position:fixed;
+  inset:0;
+  overflow:hidden;
+  pointer-events:none;
+  z-index:1;
+}
+
+.fire{
+  position:absolute;
+  bottom:-20px;
+
+  border-radius:50%;
+
+  filter:blur(3px);
+
+  animation:fireFloat linear forwards;
+}
+
+@keyframes fireFloat{
+
+  0%{
+    transform:translateY(0) scale(1);
+    opacity:1;
+  }
+
+  100%{
+    transform:translateY(-110vh) scale(0);
+    opacity:0;
+  }
+}
+
+@media(max-width:700px){
+
+  .nickname{
+    font-size:38px;
+  }
+
+  .discord-box{
+    width:95%;
+  }
+
+  .player{
+    width:95%;
+  }
+}
+
 </style>
 </head>
+
 <body>
 
 <!-- 브금 -->
-<audio id="bgm" autoplay loop>
+
+<audio id="bgm" loop>
   <source src="./minecraft.mp3" type="audio/mpeg">
 </audio>
 
 <!-- 시작화면 -->
+
 <div id="intro">
-  <div class="intro-title">골드를숭배하라</div>
-  <div class="intro-sub">CLICK TO ENTER</div>
+
+  <div class="intro-title">
+    골드를숭배하라
+  </div>
+
+  <div class="intro-sub">
+    CLICK TO ENTER
+  </div>
+
 </div>
 
-<!-- 불꽃 -->
+<!-- 보라 파티클 -->
+
 <div class="fire-container" id="fireContainer"></div>
 
-<!-- 마우스 빛 -->
-<div class="cursor-light" id="cursorLight"></div>
+<!-- 메인 -->
 
-<div class="container">
+<div class="main">
 
-  <div class="profile-card">
+  <!-- 프사 -->
+
+  <img
+    class="avatar"
+    id="avatarImg"
+    src="https://cdn.discordapp.com/embed/avatars/0.png"
+  >
+
+  <!-- 이름 -->
+
+  <div class="nickname">
+    골드를숭배하라
+  </div>
+
+  <div class="tag">
+    @pinkon_23
+  </div>
+
+  <div class="bio">
+    Luna is God
+  </div>
+
+  <!-- 디코 -->
+
+  <div class="discord-box">
 
     <img
-      class="avatar"
-      id="avatarImg"
+      class="discord-avatar"
+      id="smallAvatar"
       src="https://cdn.discordapp.com/embed/avatars/0.png"
-      alt="avatar"
     >
 
-    <div class="nickname">골드를숭배하라</div>
+    <div class="discord-info">
 
-    <div class="tag">@pinkon_23</div>
-
-    <div class="quote">"Luna is God"</div>
-
-    <div class="discord-card">
-      <div class="status-dot" id="statusDot"></div>
-
-      <div class="dc-info">
-        <div class="dc-name">Discord Status</div>
-        <div class="dc-status" id="dcStatus">Loading...</div>
+      <div class="discord-name">
+        Discord Status
       </div>
-    </div>
 
-    <div class="links">
-      <a href="https://discord.com" class="link-btn" target="_blank">
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png"
-          style="width:22px;height:22px;object-fit:contain;"
-        >
-        DISCORD
-      </a>
+      <div
+        class="discord-status"
+        id="statusText"
+      >
+        Loading...
+      </div>
 
-      <a href="https://open.spotify.com" class="link-btn" target="_blank">
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg"
-          style="width:22px;height:22px;object-fit:contain;"
-        >
-        SPOTIFY
-      </a>
-
-      <a href="https://youtube.com" class="link-btn" target="_blank">
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png"
-          style="width:28px;height:20px;object-fit:contain;border-radius:4px;"
-        >
-        YOUTUBE
-      </a>
-    </div>
-
-    <div class="music-text">
-      Minecraft Ambient Music Playing...
     </div>
 
   </div>
+
+  <!-- 소셜 -->
+
+  <div class="socials">
+
+    <a class="social-btn" href="https://youtube.com" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png">
+    </a>
+
+    <a class="social-btn" href="https://discord.com" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png">
+    </a>
+
+    <a class="social-btn" href="https://spotify.com" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg">
+    </a>
+
+  </div>
+
+  <!-- 음악 플레이어 -->
+
+  <div class="player">
+
+    <img
+      class="cover"
+      src="https://upload.wikimedia.org/wikipedia/en/1/1b/Minecraft_cover.png"
+    >
+
+    <div class="song-info">
+
+      <div class="song-title">
+        Minecraft Ambient
+      </div>
+
+      <div class="song-artist">
+        C418
+      </div>
+
+      <div class="bar">
+        <div class="bar-fill"></div>
+      </div>
+
+    </div>
+
+  </div>
+
 </div>
 
 <script>
-const DISCORD_ID = '1426143403103617078';
 
-const intro = document.getElementById('intro');
-const bgm = document.getElementById('bgm');
+const intro =
+document.getElementById('intro');
 
-intro.addEventListener('click', () => {
+const bgm =
+document.getElementById('bgm');
 
-  intro.style.opacity = '0';
+/* 시작 */
+
+intro.addEventListener('click',()=>{
+
+  intro.style.opacity='0';
 
   bgm.volume = 0.35;
 
-  bgm.currentTime = 0;
+  bgm.play();
 
-  const playPromise = bgm.play();
+  setTimeout(()=>{
+    intro.style.display='none';
+  },600);
 
-  if (playPromise !== undefined) {
-
-    playPromise.catch(() => {
-      console.log("브라우저 자동재생 차단됨");
-    });
-  }
-
-  setTimeout(() => {
-    intro.style.display = 'none';
-  }, 600);
 });
 
-// 디코 상태
-async function fetchLanyard() {
-  try {
-    const res = await fetch(`https://api.lanyard.rest/v1/users/${DISCORD_ID}`);
-    const json = await res.json();
+/* 디코 상태 */
 
-    if (!json.success) return;
+const DISCORD_ID =
+'1426143403103617078';
+
+async function fetchDiscord(){
+
+  try{
+
+    const res =
+    await fetch(
+      `https://api.lanyard.rest/v1/users/${DISCORD_ID}`
+    );
+
+    const json =
+    await res.json();
+
+    if(!json.success) return;
 
     const data = json.data;
 
-    if (data.discord_user.avatar) {
-      const avatarUrl = `https://cdn.discordapp.com/avatars/${DISCORD_ID}/${data.discord_user.avatar}.png?size=256`;
-      document.getElementById('avatarImg').src = avatarUrl;
+    if(data.discord_user.avatar){
+
+      const avatar =
+      `https://cdn.discordapp.com/avatars/${DISCORD_ID}/${data.discord_user.avatar}.png?size=256`;
+
+      document.getElementById('avatarImg').src =
+      avatar;
+
+      document.getElementById('smallAvatar').src =
+      avatar;
     }
 
-    const statusText = {
-      online: '온라인',
-      idle: '자리비움',
-      dnd: '방해금지',
-      offline: '오프라인'
+    const status = {
+      online:'온라인',
+      idle:'자리비움',
+      dnd:'방해금지',
+      offline:'오프라인'
     };
 
-    document.getElementById('dcStatus').textContent =
-      statusText[data.discord_status] || '오프라인';
+    const statusText =
+    document.getElementById('statusText');
 
-    const colors = {
-      online: '#43b581',
-      idle: '#faa61a',
-      dnd: '#f04747',
-      offline: '#747f8d'
+    statusText.textContent =
+    status[data.discord_status] || '오프라인';
+
+    const statusColors = {
+      online:'#43b581',
+      idle:'#faa61a',
+      dnd:'#f04747',
+      offline:'#747f8d'
     };
 
-    document.getElementById('statusDot').style.background =
-      colors[data.discord_status] || '#747f8d';
+    statusText.style.color =
+    statusColors[data.discord_status] || '#747f8d';
 
-  } catch(e) {
-    document.getElementById('dcStatus').textContent = 'Lanyard Error';
+  }catch(e){
+
+    console.log(e);
+
   }
 }
 
-fetchLanyard();
-setInterval(fetchLanyard, 10000);
+fetchDiscord();
 
-const fireContainer = document.getElementById('fireContainer');
+setInterval(fetchDiscord,10000);
 
-function createFire() {
-  const fire = document.createElement('div');
+/* 보라 파티클 */
+
+const fireContainer =
+document.getElementById('fireContainer');
+
+function createFire(){
+
+  const fire =
+  document.createElement('div');
+
   fire.className = 'fire';
 
-  const size = Math.random() * 10 + 4;
+  const size =
+  Math.random()*12+4;
 
-  fire.style.width = size + 'px';
-  fire.style.height = size + 'px';
+  fire.style.width =
+  size+'px';
 
-  fire.style.left = Math.random() * 100 + 'vw';
+  fire.style.height =
+  size+'px';
+
+  fire.style.left =
+  Math.random()*100+'vw';
 
   const colors = [
-    '#ff5a36',
-    '#ff8833',
-    '#ff2200',
-    '#ffcc55'
+    '#bb6dff',
+    '#a855f7',
+    '#d8b4fe',
+    '#c084fc'
   ];
 
   fire.style.background =
-    colors[Math.floor(Math.random() * colors.length)];
+  colors[Math.floor(Math.random()*colors.length)];
 
   fire.style.animationDuration =
-    (Math.random() * 3 + 2) + 's';
+  (Math.random()*3+2)+'s';
 
   fireContainer.appendChild(fire);
 
-  setTimeout(() => {
+  setTimeout(()=>{
     fire.remove();
-  }, 5000);
+  },5000);
 }
 
-setInterval(createFire, 120);
+setInterval(createFire,120);
 
-const cursorLight = document.getElementById('cursorLight');
-
-window.addEventListener('mousemove', (e) => {
-  cursorLight.style.left = e.clientX + 'px';
-  cursorLight.style.top = e.clientY + 'px';
-});
 </script>
 
 </body>
