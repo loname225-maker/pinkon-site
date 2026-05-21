@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>골드를숭배하라</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  width:100%;
+  height:100vh;
+  overflow:hidden;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  font-family:'Rajdhani',sans-serif;
+  color:white;
+
+  background:
+  linear-gradient(rgba(0,0,0,.72),rgba(0,0,0,.82)),
+  url('efdf.jpg');
+
+  background-size:cover;
+  background-position:center;
+}
+
+/* 시작화면 */
+
+#intro{
+  position:fixed;
+  inset:0;
+
+  background:black;
+
+  z-index:99999;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+
+  cursor:pointer;
+
+  transition:.6s;
+}
+
+.intro-title{
+  font-size:62px;
+
+  font-family:'Orbitron',sans-serif;
+  font-weight:900;
+
+  color:#bb6dff;
+
+  text-shadow:
+  0 0 15px rgba(187,109,255,.8),
+  0 0 50px rgba(187,109,255,.45);
+}
+
+.intro-sub{
+  margin-top:18px;
+
+  letter-spacing:5px;
+
+  color:rgba(255,255,255,.5);
+
+  animation:blink 1.5s infinite;
+}
+
+@keyframes blink{
+  0%,100%{
+    opacity:1;
+  }
+
+  50%{
+    opacity:.2;
+  }
+}
+
+/* 메인 */
+
+.main{
+  position:relative;
+  z-index:10;
+
+  text-align:center;
+
+  animation:fadeUp 1s ease;
+}
+
+@keyframes fadeUp{
+
+  from{
+    opacity:0;
+    transform:translateY(30px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* 프사 */
+
+.avatar{
+  width:150px;
+  height:150px;
+
+  border-radius:50%;
+  object-fit:cover;
+
+  border:4px solid rgba(255,255,255,.14);
+
+  box-shadow:
+  0 0 30px rgba(187,109,255,.55),
+  0 0 80px rgba(187,109,255,.22);
+
+  transition:.3s;
+}
+
+.avatar:hover{
+  transform:scale(1.05);
+}
+
+/* 이름 */
+
+.nickname{
+  margin-top:22px;
+
+  font-size:54px;
+
+  font-family:'Orbitron',sans-serif;
+  font-weight:900;
+
+  color:#d9b3ff;
+
+  text-shadow:
+  0 0 12px rgba(255,255,255,.3),
+  0 0 40px rgba(187,109,255,.45);
+}
+
+.tag{
+  margin-top:8px;
+
+  font-size:19px;
+
+  letter-spacing:3px;
+
+  color:rgba(255,255,255,.55);
+}
+
+.bio{
+  margin-top:14px;
+
+  font-size:24px;
+
+  color:rgba(255,255,255,.9);
+}
+
+/* 디코 카드 */
+
+.discord-box{
+  margin-top:30px;
+
+  width:470px;
+  max-width:92vw;
+
+  padding:20px;
+
+  border-radius:28px;
+
+  background:rgba(255,255,255,.08);
+
+  border:1px solid rgba(255,255,255,.12);
+
+  backdrop-filter:blur(18px);
+
+  display:flex;
+  align-items:center;
+  gap:18px;
+
+  box-shadow:
+  0 0 25px rgba(187,109,255,.12);
+}
+
+.discord-avatar{
+  width:78px;
+  height:78px;
+
+  border-radius:50%;
+  object-fit:cover;
+}
+
+.discord-info{
+  text-align:left;
+}
+
+.discord-name{
+  font-size:26px;
+  font-weight:700;
+}
+
+.discord-status{
+  font-size:18px;
+}
+
+/* 소셜 */
+
+.socials{
+  margin-top:35px;
+
+  display:flex;
+  justify-content:center;
+  gap:24px;
+}
+
+.social-btn{
+  width:90px;
+  height:90px;
+
+  border-radius:26px;
+
+  background:rgba(255,255,255,.08);
+
+  border:1px solid rgba(255,255,255,.12);
+
+  backdrop-filter:blur(15px);
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  transition:.25s;
+
+  box-shadow:
+  0 0 20px rgba(187,109,255,.08);
+}
+
+.social-btn:hover{
+
+  transform:translateY(-7px) scale(1.08);
+
+  box-shadow:
+  0 0 35px rgba(187,109,255,.35);
+}
+
+.social-btn img{
+  width:48px;
+  height:48px;
+  object-fit:contain;
+}
+
+/* 보라 파티클 */
+
+.fire-container{
+  position:fixed;
+  inset:0;
+  overflow:hidden;
+  pointer-events:none;
+  z-index:1;
+}
+
+.fire{
+  position:absolute;
+  bottom:-20px;
+
+  border-radius:50%;
+
+  filter:blur(3px);
+
+  animation:fireFloat linear forwards;
+}
+
+@keyframes fireFloat{
+
+  0%{
+    transform:translateY(0) scale(1);
+    opacity:1;
+  }
+
+  100%{
+    transform:translateY(-110vh) scale(0);
+    opacity:0;
+  }
+}
+
+@media(max-width:700px){
+
+  .nickname{
+    font-size:40px;
+  }
+
+  .discord-box{
+    width:95%;
+  }
+
+  .social-btn{
+    width:78px;
+    height:78px;
+  }
+
+  .social-btn img{
+    width:40px;
+    height:40px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- 시작화면 -->
+
+<div id="intro">
+
+  <div class="intro-title">
+    골드를숭배하라
+  </div>
+
+  <div class="intro-sub">
+    CLICK TO ENTER
+  </div>
+
+</div>
+
+<!-- 보라 파티클 -->
+
+<div class="fire-container" id="fireContainer"></div>
+
+<!-- 메인 -->
+
+<div class="main">
+
+  <!-- 프사 -->
+
+  <img
+    class="avatar"
+    id="avatarImg"
+    src="https://cdn.discordapp.com/embed/avatars/0.png"
+  >
+
+  <!-- 이름 -->
+
+  <div class="nickname">
+    골드를숭배하라
+  </div>
+
+  <div class="tag">
+    @pinkon_23
+  </div>
+
+  <div class="bio">
+    Luna is God
+  </div>
+
+  <!-- 디코 -->
+
+  <div class="discord-box">
+
+    <img
+      class="discord-avatar"
+      id="smallAvatar"
+      src="https://cdn.discordapp.com/embed/avatars/0.png"
+    >
+
+    <div class="discord-info">
+
+      <div class="discord-name">
+        Discord Status
+      </div>
+
+      <div
+        class="discord-status"
+        id="statusText"
+      >
+        Loading...
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- 소셜 -->
+
+  <div class="socials">
+
+    <a class="social-btn" href="https://youtube.com" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png">
+    </a>
+
+    <a class="social-btn" href="https://discord.com" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png">
+    </a>
+
+    <a class="social-btn" href="https://spotify.com" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg">
+    </a>
+
+  </div>
+
+</div>
+
+<script>
+
+const intro =
+document.getElementById('intro');
+
+/* 시작화면 */
+
+intro.addEventListener('click',()=>{
+
+  intro.style.opacity='0';
+
+  setTimeout(()=>{
+    intro.style.display='none';
+  },600);
+
+});
+
+/* 디코 상태 */
+
+const DISCORD_ID =
+'1426143403103617078';
+
+async function fetchDiscord(){
+
+  try{
+
+    const res =
+    await fetch(
+      `https://api.lanyard.rest/v1/users/${DISCORD_ID}`
+    );
+
+    const json =
+    await res.json();
+
+    if(!json.success) return;
+
+    const data = json.data;
+
+    if(data.discord_user.avatar){
+
+      const avatar =
+      `https://cdn.discordapp.com/avatars/${DISCORD_ID}/${data.discord_user.avatar}.png?size=256`;
+
+      document.getElementById('avatarImg').src =
+      avatar;
+
+      document.getElementById('smallAvatar').src =
+      avatar;
+    }
+
+    const status = {
+      online:'온라인',
+      idle:'자리비움',
+      dnd:'방해금지',
+      offline:'오프라인'
+    };
+
+    const statusText =
+    document.getElementById('statusText');
+
+    statusText.textContent =
+    status[data.discord_status] || '오프라인';
+
+    const statusColors = {
+      online:'#43b581',
+      idle:'#faa61a',
+      dnd:'#f04747',
+      offline:'#747f8d'
+    };
+
+    statusText.style.color =
+    statusColors[data.discord_status] || '#747f8d';
+
+  }catch(e){
+
+    console.log(e);
+
+  }
+}
+
+fetchDiscord();
+
+setInterval(fetchDiscord,10000);
+
+/* 보라 파티클 */
+
+const fireContainer =
+document.getElementById('fireContainer');
+
+function createFire(){
+
+  const fire =
+  document.createElement('div');
+
+  fire.className = 'fire';
+
+  const size =
+  Math.random()*12+4;
+
+  fire.style.width =
+  size+'px';
+
+  fire.style.height =
+  size+'px';
+
+  fire.style.left =
+  Math.random()*100+'vw';
+
+  const colors = [
+    '#bb6dff',
+    '#a855f7',
+    '#d8b4fe',
+    '#c084fc'
+  ];
+
+  fire.style.background =
+  colors[Math.floor(Math.random()*colors.length)];
+
+  fire.style.animationDuration =
+  (Math.random()*3+2)+'s';
+
+  fireContainer.appendChild(fire);
+
+  setTimeout(()=>{
+    fire.remove();
+  },5000);
+}
+
+setInterval(createFire,120);
+
+</script>
+
+</body>
+</html>
