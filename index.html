@@ -57,7 +57,7 @@ body{
 }
 
 .intro-title{
-  font-size:60px;
+  font-size:62px;
 
   font-family:'Orbitron',sans-serif;
   font-weight:900;
@@ -116,8 +116,8 @@ body{
 /* 프사 */
 
 .avatar{
-  width:145px;
-  height:145px;
+  width:150px;
+  height:150px;
 
   border-radius:50%;
   object-fit:cover;
@@ -140,7 +140,7 @@ body{
 .nickname{
   margin-top:22px;
 
-  font-size:52px;
+  font-size:54px;
 
   font-family:'Orbitron',sans-serif;
   font-weight:900;
@@ -155,7 +155,7 @@ body{
 .tag{
   margin-top:8px;
 
-  font-size:18px;
+  font-size:19px;
 
   letter-spacing:3px;
 
@@ -165,7 +165,7 @@ body{
 .bio{
   margin-top:14px;
 
-  font-size:22px;
+  font-size:24px;
 
   color:rgba(255,255,255,.9);
 }
@@ -173,14 +173,14 @@ body{
 /* 디코 카드 */
 
 .discord-box{
-  margin-top:28px;
+  margin-top:30px;
 
-  width:430px;
+  width:470px;
   max-width:92vw;
 
-  padding:18px;
+  padding:20px;
 
-  border-radius:25px;
+  border-radius:28px;
 
   background:rgba(255,255,255,.08);
 
@@ -190,15 +190,15 @@ body{
 
   display:flex;
   align-items:center;
-  gap:15px;
+  gap:18px;
 
   box-shadow:
   0 0 25px rgba(187,109,255,.12);
 }
 
 .discord-avatar{
-  width:70px;
-  height:70px;
+  width:78px;
+  height:78px;
 
   border-radius:50%;
   object-fit:cover;
@@ -209,29 +209,29 @@ body{
 }
 
 .discord-name{
-  font-size:24px;
+  font-size:26px;
   font-weight:700;
 }
 
 .discord-status{
-  font-size:16px;
+  font-size:18px;
 }
 
 /* 소셜 */
 
 .socials{
-  margin-top:28px;
+  margin-top:35px;
 
   display:flex;
   justify-content:center;
-  gap:18px;
+  gap:24px;
 }
 
 .social-btn{
-  width:68px;
-  height:68px;
+  width:90px;
+  height:90px;
 
-  border-radius:50%;
+  border-radius:26px;
 
   background:rgba(255,255,255,.08);
 
@@ -244,110 +244,23 @@ body{
   align-items:center;
 
   transition:.25s;
+
+  box-shadow:
+  0 0 20px rgba(187,109,255,.08);
 }
 
 .social-btn:hover{
 
-  transform:translateY(-5px) scale(1.07);
+  transform:translateY(-7px) scale(1.08);
 
   box-shadow:
-  0 0 30px rgba(187,109,255,.35);
+  0 0 35px rgba(187,109,255,.35);
 }
 
 .social-btn img{
-  width:35px;
-  height:35px;
-}
-
-/* 플레이어 */
-
-.player{
-  margin-top:38px;
-
-  width:520px;
-  max-width:92vw;
-
-  padding:18px;
-
-  border-radius:28px;
-
-  background:
-  linear-gradient(
-    135deg,
-    rgba(255,255,255,.08),
-    rgba(187,109,255,.08)
-  );
-
-  border:1px solid rgba(255,255,255,.12);
-
-  backdrop-filter:blur(18px);
-
-  display:flex;
-  align-items:center;
-  gap:16px;
-
-  box-shadow:
-  0 0 30px rgba(187,109,255,.12);
-}
-
-.cover{
-  width:76px;
-  height:76px;
-
-  border-radius:14px;
-
-  object-fit:cover;
-}
-
-.song-info{
-  flex:1;
-  text-align:left;
-}
-
-.song-title{
-  font-size:26px;
-  font-weight:700;
-}
-
-.song-artist{
-  margin-top:2px;
-
-  color:rgba(255,255,255,.6);
-}
-
-.bar{
-  margin-top:12px;
-
-  width:100%;
-  height:5px;
-
-  border-radius:999px;
-
-  background:rgba(255,255,255,.12);
-
-  overflow:hidden;
-}
-
-.bar-fill{
-  width:0%;
-  height:100%;
-
-  border-radius:999px;
-
-  background:#d7a8ff;
-
-  animation:musicMove 10s linear infinite;
-}
-
-@keyframes musicMove{
-
-  0%{
-    width:0%;
-  }
-
-  100%{
-    width:100%;
-  }
+  width:48px;
+  height:48px;
+  object-fit:contain;
 }
 
 /* 보라 파티클 */
@@ -387,15 +300,21 @@ body{
 @media(max-width:700px){
 
   .nickname{
-    font-size:38px;
+    font-size:40px;
   }
 
   .discord-box{
     width:95%;
   }
 
-  .player{
-    width:95%;
+  .social-btn{
+    width:78px;
+    height:78px;
+  }
+
+  .social-btn img{
+    width:40px;
+    height:40px;
   }
 }
 
@@ -403,12 +322,6 @@ body{
 </head>
 
 <body>
-
-<!-- 브금 -->
-
-<audio id="bgm" loop>
-  <source src="./minecraft.mp3" type="audio/mpeg">
-</audio>
 
 <!-- 시작화면 -->
 
@@ -499,33 +412,6 @@ body{
 
   </div>
 
-  <!-- 음악 플레이어 -->
-
-  <div class="player">
-
-    <img
-      class="cover"
-      src="https://upload.wikimedia.org/wikipedia/en/1/1b/Minecraft_cover.png"
-    >
-
-    <div class="song-info">
-
-      <div class="song-title">
-        Minecraft Ambient
-      </div>
-
-      <div class="song-artist">
-        C418
-      </div>
-
-      <div class="bar">
-        <div class="bar-fill"></div>
-      </div>
-
-    </div>
-
-  </div>
-
 </div>
 
 <script>
@@ -533,18 +419,11 @@ body{
 const intro =
 document.getElementById('intro');
 
-const bgm =
-document.getElementById('bgm');
-
-/* 시작 */
+/* 시작화면 */
 
 intro.addEventListener('click',()=>{
 
   intro.style.opacity='0';
-
-  bgm.volume = 0.35;
-
-  bgm.play();
 
   setTimeout(()=>{
     intro.style.display='none';
